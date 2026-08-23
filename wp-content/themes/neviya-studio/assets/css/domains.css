@@ -1,0 +1,82 @@
+/**
+ * Chapter 3 — Domains: five branches growing from one drawn stem.
+ */
+.neviya-domains {
+	position: relative;
+	padding-block: var(--neviya-space-xl);
+}
+.neviya-domains .neviya-section-title { text-align: center; margin-bottom: var(--neviya-space-l); }
+
+.neviya-domains__stem {
+	position: absolute;
+	top: 8rem;
+	right: 50%;
+	transform: translateX(50%);
+	width: 2px;
+	height: calc(100% - 10rem);
+	z-index: 0;
+	pointer-events: none;
+}
+.neviya-domains__stem path { stroke-dashoffset: 1; }
+.neviya-domains__stem.is-drawn path { transition: stroke-dashoffset 1.8s var(--neviya-ease); stroke-dashoffset: 0; }
+
+.neviya-domains__list {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	gap: var(--neviya-space-l);
+	max-width: 50rem;
+	margin-inline: auto;
+}
+
+.neviya-domains__item { display: flex; }
+.neviya-domains__item--right { justify-content: flex-start; }
+.neviya-domains__item--left { justify-content: flex-end; }
+
+.neviya-domains__link {
+	display: flex;
+	align-items: center;
+	gap: var(--neviya-space-s);
+	padding: var(--neviya-space-s) var(--neviya-space-m);
+	background: color-mix(in srgb, var(--neviya-paper) 60%, #fff 40%);
+	border: 1px solid color-mix(in srgb, var(--neviya-graphite) 14%, transparent);
+	border-radius: 999px;
+	max-width: 22rem;
+	opacity: 0;
+	transform: scale(0.92);
+	transition: opacity 0.6s var(--neviya-ease), transform 0.6s var(--neviya-ease), border-color 0.3s, background 0.3s;
+}
+.neviya-domains__item.is-visible .neviya-domains__link { opacity: 1; transform: scale(1); }
+
+.neviya-domains__link:hover, .neviya-domains__link:focus-visible {
+	border-color: currentColor;
+	background: #fff;
+}
+
+.neviya-domains__glyph {
+	width: 2.4rem;
+	height: 2.4rem;
+	flex-shrink: 0;
+	color: var(--neviya-graphite);
+}
+.neviya-domains__glyph svg { width: 100%; height: 100%; }
+
+.neviya-domains__label {
+	font-family: var(--neviya-font-display);
+	font-size: 1.15rem;
+	font-weight: 700;
+	color: var(--neviya-ink);
+}
+
+.neviya-domains__arrow {
+	margin-inline-start: auto;
+	opacity: 0;
+	transform: translateX(4px);
+	transition: opacity 0.25s var(--neviya-ease), transform 0.25s var(--neviya-ease);
+}
+.neviya-domains__link:hover .neviya-domains__arrow,
+.neviya-domains__link:focus-visible .neviya-domains__arrow { opacity: 1; transform: translateX(0); }
+
+.neviya-reduced-motion .neviya-domains__stem path { stroke-dashoffset: 0 !important; }
+.neviya-reduced-motion .neviya-domains__link { opacity: 1 !important; transform: none !important; }

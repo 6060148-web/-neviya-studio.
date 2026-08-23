@@ -1,0 +1,19 @@
+/*
+Theme Name: Neviya Studio
+Theme URI: https://example.com/neviya-studio
+Author: Neviya Studio
+Author URI: https://example.com
+Description: תבנית WordPress ייחודית לסטודיו נביעה – פורטפוליו אמנותי וקולנועי המבוסס על סיפור גלילה, המתאר מעבר מסקיצת עיפרון לעולם צבעוני. תומכת בעברית ו-RTL באופן מלא, בנויה לעבודה עם Elementor.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+Tested up to: 6.6
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: neviya-studio
+Tags: portfolio, one-page, rtl, hebrew, elementor-compatible
+
+Neviya Studio Theme is distributed under the terms of the GNU GPL.
+*/
+
+/* Stylesheet loading is handled by inc/enqueue.php – see assets/css/*.css */
