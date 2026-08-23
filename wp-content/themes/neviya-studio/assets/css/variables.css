@@ -1,0 +1,50 @@
+/**
+ * Design tokens — Studio Neviya.
+ * All namespaced --neviya-* to stay collision-free next to Elementor's own variables.
+ */
+:root {
+	/* Paper & ink */
+	--neviya-paper: #FFF7F0;
+	--neviya-paper-deep: #F6EEE3;
+	--neviya-graphite: #3a3a3a;
+	--neviya-charcoal: #2b2b2b;
+	--neviya-ink: #1f2430;
+	--neviya-pencil: #8a8378;
+
+	/* Color-world palette (revealed through the story) */
+	--neviya-water-blue: #4f7f9e;
+	--neviya-teal: #6fa8a3;
+	--neviya-green: #7a9b6e;
+	--neviya-warm-1: #d98a4a;
+	--neviya-warm-2: #c85c46;
+
+	--neviya-accent-1: var(--neviya-water-blue);
+	--neviya-accent-2: var(--neviya-teal);
+	--neviya-accent-3: var(--neviya-green);
+	--neviya-accent-4: var(--neviya-warm-2);
+
+	/* Typography */
+	--neviya-font-display: "Frank Ruhl Libre", "Times New Roman", serif;
+	--neviya-font-body: "Heebo", "Segoe UI", sans-serif;
+
+	--neviya-fs-hero: clamp(2.4rem, 6vw, 5rem);
+	--neviya-fs-h2: clamp(1.9rem, 4vw, 3.1rem);
+	--neviya-fs-h3: clamp(1.3rem, 2.4vw, 1.9rem);
+	--neviya-fs-body: clamp(1rem, 1.1vw, 1.15rem);
+	--neviya-fs-small: 0.9rem;
+
+	/* Rhythm */
+	--neviya-space-xs: 0.5rem;
+	--neviya-space-s: 1rem;
+	--neviya-space-m: 2rem;
+	--neviya-space-l: 4rem;
+	--neviya-space-xl: 7rem;
+
+	--neviya-radius: 6px;
+	--neviya-max-width: 1360px;
+
+	--neviya-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+	--neviya-duration: 0.6s;
+
+	color-scheme: light;
+}

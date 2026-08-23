@@ -1,0 +1,114 @@
+/**
+ * Chapter 1 — Hero: pencil-to-colour scroll scene.
+ */
+.neviya-hero {
+	position: relative;
+	height: 220vh;
+	background: var(--neviya-paper);
+}
+
+.neviya-hero__sticky {
+	position: sticky;
+	top: 0;
+	height: 100vh;
+	min-height: 560px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	background:
+		radial-gradient(ellipse at 30% 20%, color-mix(in srgb, var(--neviya-teal) 6%, transparent), transparent 60%),
+		var(--neviya-paper);
+}
+
+.neviya-hero__art {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+}
+.neviya-hero-svg {
+	width: min(64vh, 580px);
+	height: min(64vh, 580px);
+	opacity: 0.85;
+}
+
+/* Pencil sketch, always visible as the "base" drawing */
+#neviya-hero-lines path,
+#neviya-hero-lines circle {
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+}
+.neviya-hero-lines-ready #neviya-hero-lines path,
+.neviya-hero-lines-ready #neviya-hero-lines circle {
+	transition: stroke-dashoffset 1.4s var(--neviya-ease);
+	stroke-dashoffset: 0;
+}
+
+/* Colour layer stays masked out (r="0" set directly in the SVG markup)
+   until scroll-story.js animates the r *attribute* via GSAP. Deliberately
+   not set here: a CSS geometry rule would always out-rank that attribute
+   animation in the cascade and freeze the circles at whatever this said. */
+
+.neviya-hero__content {
+	position: relative;
+	z-index: 2;
+	text-align: center;
+	max-width: 46rem;
+	padding: 3rem 2.5rem;
+	/* A soft "paper halo" so the title stays legible over the busy line
+	   art behind it, without hard-edging the illustration underneath. */
+	background: radial-gradient(
+		ellipse 70% 75% at center,
+		color-mix(in srgb, var(--neviya-paper) 94%, transparent) 0%,
+		color-mix(in srgb, var(--neviya-paper) 80%, transparent) 55%,
+		transparent 80%
+	);
+}
+.neviya-hero__eyebrow {
+	font-size: var(--neviya-fs-small);
+	letter-spacing: 0.06em;
+	color: var(--neviya-pencil);
+	text-transform: uppercase;
+	margin-bottom: var(--neviya-space-s);
+}
+.neviya-hero__title {
+	font-size: var(--neviya-fs-hero);
+	margin-bottom: var(--neviya-space-s);
+}
+.neviya-hero__subtitle {
+	font-size: 1.15rem;
+	color: var(--neviya-graphite);
+	max-width: 34rem;
+	margin-inline: auto;
+}
+
+.neviya-scroll-cue {
+	position: absolute;
+	bottom: var(--neviya-space-m);
+	right: 50%;
+	transform: translateX(50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.4em;
+	color: var(--neviya-pencil);
+	font-size: var(--neviya-fs-small);
+	z-index: 2;
+}
+.neviya-scroll-cue svg { width: 18px; height: 30px; animation: neviya-cue-bounce 2.2s ease-in-out infinite; }
+
+@keyframes neviya-cue-bounce {
+	0%, 100% { transform: translateY(0); opacity: 0.6; }
+	50% { transform: translateY(8px); opacity: 1; }
+}
+
+.neviya-reduced-motion .neviya-scroll-cue svg { animation: none; }
+.neviya-reduced-motion .neviya-reveal-c1,
+.neviya-reduced-motion .neviya-reveal-c2,
+.neviya-reduced-motion .neviya-reveal-c3 { r: 900; }
+.neviya-reduced-motion #neviya-hero-lines path,
+.neviya-reduced-motion #neviya-hero-lines circle { stroke-dashoffset: 0; }

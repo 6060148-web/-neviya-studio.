@@ -1,0 +1,42 @@
+/**
+ * Chapter 2 — About: a hand-written line, text arriving stroke by stroke.
+ */
+.neviya-about {
+	position: relative;
+	padding-block: var(--neviya-space-xl);
+}
+
+.neviya-about__line-art {
+	max-width: 60rem;
+	margin: 0 auto var(--neviya-space-l);
+}
+.neviya-about-svg path {
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+}
+.neviya-about-svg .neviya-about-dot {
+	opacity: 0;
+	transform-origin: center;
+}
+.neviya-about-svg.is-drawn path { transition: stroke-dashoffset 1.6s var(--neviya-ease); stroke-dashoffset: 0; }
+.neviya-about-svg.is-drawn .neviya-about-dot { transition: opacity 0.4s var(--neviya-ease) 1.2s; opacity: 1; }
+
+.neviya-about__inner { max-width: 46rem; margin-inline: auto; text-align: center; }
+.neviya-about__lines { display: flex; flex-direction: column; gap: var(--neviya-space-m); }
+.neviya-about__line {
+	font-size: var(--neviya-fs-h3);
+	font-family: var(--neviya-font-display);
+	color: var(--neviya-graphite);
+	opacity: 0;
+	transform: translateY(18px);
+}
+.neviya-about__line.is-visible {
+	transition: opacity 0.7s var(--neviya-ease), transform 0.7s var(--neviya-ease);
+	transition-delay: calc(var(--line-index) * 0.12s);
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.neviya-reduced-motion .neviya-about-svg path,
+.neviya-reduced-motion .neviya-about-svg .neviya-about-dot { stroke-dashoffset: 0 !important; opacity: 1 !important; }
+.neviya-reduced-motion .neviya-about__line { opacity: 1 !important; transform: none !important; }

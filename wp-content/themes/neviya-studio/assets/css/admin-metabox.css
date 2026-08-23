@@ -1,0 +1,40 @@
+/**
+ * Styling for the "פרטי הפרויקט" meta box in wp-admin only.
+ */
+.neviya-metabox__table th { width: 220px; vertical-align: top; padding-top: 1.1em; }
+.neviya-image-field__preview img { border: 1px solid #dcdcde; border-radius: 4px; margin-bottom: 6px; }
+.neviya-image-field__select, .neviya-image-field__remove { margin-inline-end: 6px; }
+
+.neviya-gallery-field__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 0 0 10px;
+	padding: 0;
+	list-style: none;
+}
+.neviya-gallery-field__list li {
+	position: relative;
+	width: 70px;
+	height: 70px;
+}
+.neviya-gallery-field__list img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 4px;
+	border: 1px solid #dcdcde;
+}
+.neviya-gallery-field__remove-item {
+	position: absolute;
+	top: -6px;
+	left: -6px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #d63638;
+	color: #fff;
+	border: none;
+	line-height: 1;
+	cursor: pointer;
+}

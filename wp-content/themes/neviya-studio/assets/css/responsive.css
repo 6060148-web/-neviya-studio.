@@ -1,0 +1,54 @@
+/**
+ * Responsive overrides. Mobile gets a deliberately simplified, shorter
+ * version of the story — not just a shrunk desktop layout.
+ * Tested against 360 / 768 / 1024 / 1440px.
+ */
+
+/* ≤1024px — tablet: single-column project cards, tighter grids */
+@media (max-width: 1024px) {
+	.neviya-project-card { grid-template-columns: 1fr; }
+	.neviya-project-card:nth-child(even) { direction: rtl; }
+	.neviya-archive__grid { grid-template-columns: repeat(2, 1fr); }
+	.neviya-single-project__layout { grid-template-columns: 1fr; }
+	.neviya-single-project__sidebar { position: static; flex-direction: row; flex-wrap: wrap; }
+	.neviya-contact__grid { grid-template-columns: 1fr; }
+}
+
+/* ≤768px — mobile: shorten the pinned hero, simplify motion, stack everything */
+@media (max-width: 768px) {
+	.neviya-hero { height: 130vh; }
+	.neviya-hero__sticky { min-height: 100svh; }
+	.neviya-hero-svg { width: min(58vw, 420px); height: min(58vw, 420px); }
+	.neviya-hero__title { font-size: clamp(2rem, 9vw, 2.8rem); }
+
+	.neviya-domains__stem { display: none; }
+	.neviya-domains__item--right, .neviya-domains__item--left { justify-content: center; }
+	.neviya-domains__link { max-width: 100%; }
+
+	.neviya-archive__grid { grid-template-columns: 1fr; }
+	.neviya-single-project__gallery { grid-template-columns: 1fr; }
+
+	.neviya-contact__grid { text-align: center; }
+	.neviya-field, .neviya-field--consent { text-align: right; }
+	.neviya-btn--submit { align-self: stretch; justify-content: center; }
+	.neviya-social-links { justify-content: center; }
+
+	.neviya-site-header__inner { flex-wrap: wrap; gap: var(--neviya-space-s); }
+	.neviya-nav-menu { gap: var(--neviya-space-s); font-size: 0.95rem; }
+}
+
+/* ≤480px — small phones: comfortable tap targets, no cramped type */
+@media (max-width: 480px) {
+	:root { --neviya-space-l: 3rem; --neviya-space-xl: 4.5rem; }
+	.neviya-hero { height: 118vh; }
+	.neviya-btn { width: 100%; justify-content: center; }
+	.neviya-project-card__actions { flex-direction: column; }
+	.neviya-project-card__actions .neviya-btn { width: 100%; }
+	.neviya-field input, .neviya-field select, .neviya-field textarea { font-size: 16px; } /* avoid iOS zoom-on-focus */
+}
+
+/* Guard against any accidental horizontal overflow from wide SVG/art layers */
+body, .neviya-story, .neviya-hero, .neviya-about, .neviya-domains, .neviya-projects, .neviya-contact {
+	max-width: 100vw;
+	overflow-x: clip;
+}

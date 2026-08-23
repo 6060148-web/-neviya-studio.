@@ -1,0 +1,59 @@
+/**
+ * Chapter 5 — Contact.
+ */
+.neviya-contact {
+	padding-block: var(--neviya-space-xl);
+	background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--neviya-teal) 8%, transparent));
+}
+.neviya-contact__inner { max-width: 52rem; margin-inline: auto; text-align: center; }
+.neviya-contact .neviya-section-title { margin-bottom: var(--neviya-space-xs); }
+.neviya-contact__subtitle { color: var(--neviya-graphite); font-size: 1.1rem; max-width: 38rem; margin-inline: auto var(--neviya-space-l); }
+
+.neviya-contact__grid {
+	display: grid;
+	grid-template-columns: 1.4fr 1fr;
+	gap: var(--neviya-space-l);
+	text-align: right;
+	align-items: start;
+}
+
+.neviya-contact-form { display: flex; flex-direction: column; gap: var(--neviya-space-s); }
+.neviya-field { display: flex; flex-direction: column; gap: 0.4em; text-align: right; }
+.neviya-field label { font-size: var(--neviya-fs-small); color: var(--neviya-graphite); }
+.neviya-field input[type="text"],
+.neviya-field input[type="email"],
+.neviya-field select,
+.neviya-field textarea {
+	font: inherit;
+	padding: 0.8em 1em;
+	border: 1.5px solid color-mix(in srgb, var(--neviya-graphite) 25%, transparent);
+	border-radius: var(--neviya-radius);
+	background: #fff;
+	color: var(--neviya-ink);
+	resize: vertical;
+}
+.neviya-field input:focus, .neviya-field select:focus, .neviya-field textarea:focus {
+	border-color: var(--neviya-water-blue);
+	outline: none;
+}
+.neviya-field--consent { flex-direction: row; align-items: flex-start; gap: 0.6em; font-size: var(--neviya-fs-small); }
+.neviya-field--consent label { display: flex; gap: 0.6em; align-items: flex-start; color: var(--neviya-graphite); }
+.neviya-field--consent input { margin-top: 0.25em; }
+.neviya-field--consent a { text-decoration: underline; }
+
+.neviya-btn--submit { align-self: flex-start; margin-top: var(--neviya-space-xs); }
+.neviya-btn--submit[disabled] { opacity: 0.6; cursor: progress; }
+
+.neviya-contact-form__status {
+	min-height: 1.4em;
+	font-size: var(--neviya-fs-small);
+}
+.neviya-contact-form__status[data-state="success"] { color: var(--neviya-green); }
+.neviya-contact-form__status[data-state="error"] { color: var(--neviya-warm-2); }
+
+.neviya-contact__details { display: flex; flex-direction: column; gap: var(--neviya-space-s); padding-top: var(--neviya-space-xs); }
+.neviya-contact__detail { font-family: var(--neviya-font-display); font-size: 1.2rem; }
+.neviya-contact__detail:hover, .neviya-contact__detail:focus-visible { color: var(--neviya-warm-2); }
+
+.neviya-social-links { display: flex; gap: var(--neviya-space-m); margin-top: var(--neviya-space-s); }
+.neviya-social-links a:hover, .neviya-social-links a:focus-visible { color: var(--neviya-water-blue); }
